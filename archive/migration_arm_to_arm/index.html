@@ -6,13 +6,13 @@
   
   <title>ARM 環境から ARM 環境への仮想マシンの移行方法 | Japan Azure IaaS Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは。Azureサポートチームの小久保です。 本日は、別のサブスクリプションの環境に仮想ネットワーク、仮想マシンを移行する方法をご紹介します。 今回、ご紹介する環境は、Azure リソース マネージャー (以下、ARM) 環境から ARM 環境への移行となっております。 ご参考Azure サービス マネージャー (以下、ASM) 環境から ASM 環境への移行の場合は以下をご確認ください。ク">
+  <meta name="description" content="こんにちは。Azureサポートチームの小久保です。本日は、別のサブスクリプションの環境に仮想ネットワーク、仮想マシンを移行する方法をご紹介します。今回、ご紹介する環境は、Azure リソース マネージャー (以下、ARM) 環境から ARM 環境への移行となっております。 ご参考Azure サービス マネージャー (以下、ASM) 環境から ASM 環境への移行の場合は以下をご確認ください。クラシ">
 <meta name="keywords" content="Archive,Migration,ARM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ARM 環境から ARM 環境への仮想マシンの移行方法">
 <meta property="og:url" content="https://jpaztech.github.io/archive/migration_arm_to_arm/index.html">
 <meta property="og:site_name" content="Japan Azure IaaS Support Blog">
-<meta property="og:description" content="こんにちは。Azureサポートチームの小久保です。 本日は、別のサブスクリプションの環境に仮想ネットワーク、仮想マシンを移行する方法をご紹介します。 今回、ご紹介する環境は、Azure リソース マネージャー (以下、ARM) 環境から ARM 環境への移行となっております。 ご参考Azure サービス マネージャー (以下、ASM) 環境から ASM 環境への移行の場合は以下をご確認ください。ク">
+<meta property="og:description" content="こんにちは。Azureサポートチームの小久保です。本日は、別のサブスクリプションの環境に仮想ネットワーク、仮想マシンを移行する方法をご紹介します。今回、ご紹介する環境は、Azure リソース マネージャー (以下、ARM) 環境から ARM 環境への移行となっております。 ご参考Azure サービス マネージャー (以下、ASM) 環境から ASM 環境への移行の場合は以下をご確認ください。クラシ">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://jpaztech.github.io/blog/archive/migration_arm_to_arm/Constitution3.png">
 <meta property="og:image" content="https://jpaztech.github.io/blog/archive/migration_arm_to_arm/stopvm.png">
@@ -22,10 +22,10 @@
 <meta property="og:image" content="https://jpaztech.github.io/blog/archive/migration_arm_to_arm/addvnetproperty2.png">
 <meta property="og:image" content="https://jpaztech.github.io/blog/archive/migration_arm_to_arm/VHD_URL2.png">
 <meta property="og:image" content="https://jpaztech.github.io/blog/archive/migration_arm_to_arm/accesskeynew.png">
-<meta property="og:updated_time" content="2019-10-17T11:11:23.740Z">
+<meta property="og:updated_time" content="2019-10-17T11:14:11.756Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ARM 環境から ARM 環境への仮想マシンの移行方法">
-<meta name="twitter:description" content="こんにちは。Azureサポートチームの小久保です。 本日は、別のサブスクリプションの環境に仮想ネットワーク、仮想マシンを移行する方法をご紹介します。 今回、ご紹介する環境は、Azure リソース マネージャー (以下、ARM) 環境から ARM 環境への移行となっております。 ご参考Azure サービス マネージャー (以下、ASM) 環境から ASM 環境への移行の場合は以下をご確認ください。ク">
+<meta name="twitter:description" content="こんにちは。Azureサポートチームの小久保です。本日は、別のサブスクリプションの環境に仮想ネットワーク、仮想マシンを移行する方法をご紹介します。今回、ご紹介する環境は、Azure リソース マネージャー (以下、ARM) 環境から ARM 環境への移行となっております。 ご参考Azure サービス マネージャー (以下、ASM) 環境から ASM 環境への移行の場合は以下をご確認ください。クラシ">
 <meta name="twitter:image" content="https://jpaztech.github.io/blog/archive/migration_arm_to_arm/Constitution3.png">
   
     <link rel="alternate" href="../../blog/atom.xml" title="Japan Azure IaaS Support Blog" type="application/atom+xml">
@@ -103,15 +103,13 @@
         
         <a href="https://jpaztech.github.io/blog/issues/new?title=&body=%0A%0D%0A---%0D%0A%0D%0A%23%23%23%23+Document+Details%0D%0A%0D%0A%E2%9A%A0+*Do+not+edit+this+section.%0D%0A%0D%0A*+ID%3A+a53f3ccd-db96-53fc-9550-ccfea23808af%0D%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BARM+%E7%92%B0%E5%A2%83%E3%81%8B%E3%82%89+ARM+%E7%92%B0%E5%A2%83%E3%81%B8%E3%81%AE%E4%BB%AE%E6%83%B3%E3%83%9E%E3%82%B7%E3%83%B3%E3%81%AE%E7%A7%BB%E8%A1%8C%E6%96%B9%E6%B3%95%5D%28https%3A%2F%2Fjpaztech.github.io%2Fblog%2Farchive%2Fmigration_arm_to_arm%2F%29%0D%0A*+Content+Source%3A+%5Barticles%2Farchive%2Fmigration_arm_to_arm.md%5D%28https%3A%2F%2Fjpaztech.github.io%2Fblog%2Fblob%2Fmaster%2Farticles%2Farchive%2Fmigration_arm_to_arm.md%29%0D%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpaztech.github.io/archive/migration_arm_to_arm/" data-id="ck1ult8xf0008qsn02g4s1hwt" class="article-share-link">共有</a>
+        <a data-url="https://jpaztech.github.io/archive/migration_arm_to_arm/" data-id="ck1ulwunl0008p0n04529k0os" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>こんにちは。Azureサポートチームの小久保です。</p>
-<p>本日は、別のサブスクリプションの環境に仮想ネットワーク、仮想マシンを移行する方法をご紹介します。</p>
-<p>今回、ご紹介する環境は、Azure リソース マネージャー (以下、ARM) 環境から ARM 環境への移行となっております。</p>
-<h2 id="ご参考"><a href="#ご参考" class="headerlink" title="ご参考"></a>ご参考</h2><p>Azure サービス マネージャー (以下、ASM) 環境から ASM 環境への移行の場合は以下をご確認ください。<br><br><a href="http://blogs.technet.microsoft.com/jpaztech/2016/07/11/migration_classic_to_classic/" target="_blank" rel="noopener">クラシック環境からクラシック環境への仮想マシンの移行方法</a></p>
+        <p>こんにちは。Azureサポートチームの小久保です。<br>本日は、別のサブスクリプションの環境に仮想ネットワーク、仮想マシンを移行する方法をご紹介します。<br>今回、ご紹介する環境は、Azure リソース マネージャー (以下、ARM) 環境から ARM 環境への移行となっております。</p>
+<h2 id="ご参考"><a href="#ご参考" class="headerlink" title="ご参考"></a>ご参考</h2><p>Azure サービス マネージャー (以下、ASM) 環境から ASM 環境への移行の場合は以下をご確認ください。<br><a href="http://blogs.technet.microsoft.com/jpaztech/2016/07/11/migration_classic_to_classic/" target="_blank" rel="noopener">クラシック環境からクラシック環境への仮想マシンの移行方法</a></p>
 <h2 id="利用する場面"><a href="#利用する場面" class="headerlink" title="利用する場面"></a>利用する場面</h2><ul>
 <li>開発用のサブスクリプションで作成した仮想マシンを本番環境用のサブスクリプションへ移行したい。</li>
 <li>VHD の保存されているストレージ アカウントを移動したい。</li>
@@ -129,22 +127,22 @@
 </ol>
 <img src="/blog/archive/migration_arm_to_arm/Constitution3.png">
 
-<h2 id="事前準備"><a href="#事前準備" class="headerlink" title="事前準備"></a>事前準備</h2><p>AzCopy ツールを利用するため、 Microsoft Azure Storage Tools を以下よりダウンロードし、お手元のコンピューターにインストールをお願いします。<br><br><a href="https://aka.ms/downloadazcopy" target="_blank" rel="noopener">Microsoft Azure Storage Tools</a></p>
+<h2 id="事前準備"><a href="#事前準備" class="headerlink" title="事前準備"></a>事前準備</h2><p>AzCopy ツールを利用するため、 Microsoft Azure Storage Tools を以下よりダウンロードし、お手元のコンピューターにインストールをお願いします。<br><a href="https://aka.ms/downloadazcopy" target="_blank" rel="noopener">Microsoft Azure Storage Tools</a></p>
 <h2 id="作業手順"><a href="#作業手順" class="headerlink" title="作業手順"></a>作業手順</h2><h3 id="1-新-ポータル-https-portal-azure-com-より、仮想マシンを停止します。"><a href="#1-新-ポータル-https-portal-azure-com-より、仮想マシンを停止します。" class="headerlink" title="1. 新 ポータル (https://portal.azure.com/) より、仮想マシンを停止します。"></a>1. 新 ポータル (<a href="https://portal.azure.com/" target="_blank" rel="noopener">https://portal.azure.com/</a>) より、仮想マシンを停止します。</h3><img src="/blog/archive/migration_arm_to_arm/stopvm.png">
 
 <h3 id="2-移行先のサブスクリプションに、ストレージアカウントを作成します。"><a href="#2-移行先のサブスクリプションに、ストレージアカウントを作成します。" class="headerlink" title="2. 移行先のサブスクリプションに、ストレージアカウントを作成します。"></a>2. 移行先のサブスクリプションに、ストレージアカウントを作成します。</h3><p>ストレージ アカウントを選択後、[＋追加] をクリックします。</p>
 <img src="/blog/archive/migration_arm_to_arm/addstorage.png">
 
-<p>新規作成するストレージアカウントの情報を入力し、「作成」ボタンをクリックします。<br><br><span style="color:red;">※ アカウントの種類は汎用を選択します。</span><br><br>※ サブスクリプションは移行先のサブスクリプションを選択します。</p>
+<p>新規作成するストレージアカウントの情報を入力し、「作成」ボタンをクリックします。<br><span style="color:red;">※ アカウントの種類は汎用を選択します。</span><br>※ サブスクリプションは移行先のサブスクリプションを選択します。</p>
 <img src="/blog/archive/migration_arm_to_arm/addstorageproperty2.png">
 
 <h3 id="3-移行先のサブスクリプションに、仮想ネットワークを作成します。"><a href="#3-移行先のサブスクリプションに、仮想ネットワークを作成します。" class="headerlink" title="3. 移行先のサブスクリプションに、仮想ネットワークを作成します。"></a>3. 移行先のサブスクリプションに、仮想ネットワークを作成します。</h3><p>仮想ネットワークを選択後、[＋追加] をクリックします。</p>
 <img src="/blog/archive/migration_arm_to_arm/addvnet.png">
 
-<p>新規作成する仮想ネットワークの情報を入力し、「作成」ボタンをクリックします。<br><br><span style="color:red;">※サブスクリプションは移行先のサブスクリプションを選択します。</span></p>
+<p>新規作成する仮想ネットワークの情報を入力し、「作成」ボタンをクリックします。<br><span style="color:red;">※サブスクリプションは移行先のサブスクリプションを選択します。</span></p>
 <img src="/blog/archive/migration_arm_to_arm/addvnetproperty2.png">
 
-<h3 id="4-AzCopy-を利用し、移行先のストレージアカウントへ-VHD-ファイルをコピーします。"><a href="#4-AzCopy-を利用し、移行先のストレージアカウントへ-VHD-ファイルをコピーします。" class="headerlink" title="4. AzCopy を利用し、移行先のストレージアカウントへ VHD ファイルをコピーします。"></a>4. AzCopy を利用し、移行先のストレージアカウントへ VHD ファイルをコピーします。</h3><p>管理者権限にてコマンドプロンプトを起動し、AzCopy のディレクトリに移動し、AzCopy コマンドを実行します。<br><br><span style="color:red;">※ 同じデータセンター内での VHD ファイルの移動は無償ですが、データセンターを跨いだ VHD ファイルの移動は有償となります為、ご注意ください。</span></p>
+<h3 id="4-AzCopy-を利用し、移行先のストレージアカウントへ-VHD-ファイルをコピーします。"><a href="#4-AzCopy-を利用し、移行先のストレージアカウントへ-VHD-ファイルをコピーします。" class="headerlink" title="4. AzCopy を利用し、移行先のストレージアカウントへ VHD ファイルをコピーします。"></a>4. AzCopy を利用し、移行先のストレージアカウントへ VHD ファイルをコピーします。</h3><p>管理者権限にてコマンドプロンプトを起動し、AzCopy のディレクトリに移動し、AzCopy コマンドを実行します。<br><span style="color:red;">※ 同じデータセンター内での VHD ファイルの移動は無償ですが、データセンターを跨いだ VHD ファイルの移動は有償となります為、ご注意ください。</span></p>
 <p>コマンド例：</p>
 <blockquote>
 <p>cd C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy</p>
