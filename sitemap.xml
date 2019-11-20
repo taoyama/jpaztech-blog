@@ -2,128 +2,128 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://jpaztech.github.io/other/azure_technical_support_explained/</loc>
+    <loc>https://jpaztech.github.io/information/test/</loc>
     
-    <lastmod>2019-11-20T08:57:04.203Z</lastmod>
+    <lastmod>2019-11-20T09:10:28.021Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jpaztech.github.io/archive/take-time-to-boot-after20171209/</loc>
+    <loc>https://jpaztech.github.io/other/azure_technical_support_explained/</loc>
     
-    <lastmod>2019-11-20T08:57:04.187Z</lastmod>
+    <lastmod>2019-11-20T09:10:28.021Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://jpaztech.github.io/archive/upgrade-backup-container-asm2arm/</loc>
     
-    <lastmod>2019-11-20T08:57:04.187Z</lastmod>
+    <lastmod>2019-11-20T09:10:28.005Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jpaztech.github.io/information/test/</loc>
+    <loc>https://jpaztech.github.io/archive/take-time-to-boot-after20171209/</loc>
     
-    <lastmod>2019-11-20T08:57:04.187Z</lastmod>
+    <lastmod>2019-11-20T09:10:27.989Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://jpaztech.github.io/archive/restore-vm-by-swap-manageddisk/</loc>
     
-    <lastmod>2019-11-20T08:57:04.187Z</lastmod>
+    <lastmod>2019-11-20T09:10:27.989Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://jpaztech.github.io/archive/need-azurebox32-ico/</loc>
     
-    <lastmod>2019-11-20T08:57:04.171Z</lastmod>
+    <lastmod>2019-11-20T09:10:27.958Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://jpaztech.github.io/archive/powershell-applicationgateway-configuration/</loc>
     
-    <lastmod>2019-11-20T08:57:04.171Z</lastmod>
+    <lastmod>2019-11-20T09:10:27.958Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://jpaztech.github.io/archive/monitor-io-throttoling-on-win-vm-arm/</loc>
     
-    <lastmod>2019-11-20T08:57:04.171Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpaztech.github.io/archive/applicationgaetway-waf-01/</loc>
-    
-    <lastmod>2019-11-20T08:57:04.156Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpaztech.github.io/archive/azure-powershell-3-8-0-install/</loc>
-    
-    <lastmod>2019-11-20T08:57:04.156Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpaztech.github.io/archive/backup-morethan-1tb-disk/</loc>
-    
-    <lastmod>2019-11-20T08:57:04.156Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpaztech.github.io/archive/disk11-after20180104/</loc>
-    
-    <lastmod>2019-11-20T08:57:04.156Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpaztech.github.io/archive/mayupdate_unable-to-rdp/</loc>
-    
-    <lastmod>2019-11-20T08:57:04.156Z</lastmod>
+    <lastmod>2019-11-20T09:10:27.911Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://jpaztech.github.io/archive/migration_arm_to_arm/</loc>
     
-    <lastmod>2019-11-20T08:57:04.156Z</lastmod>
+    <lastmod>2019-11-20T09:10:27.896Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jpaztech.github.io/archive/application-gateway-waf-vulnerability-detection/</loc>
+    <loc>https://jpaztech.github.io/archive/mayupdate_unable-to-rdp/</loc>
     
-    <lastmod>2019-11-20T08:57:04.156Z</lastmod>
+    <lastmod>2019-11-20T09:10:27.864Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://jpaztech.github.io/archive/dns-2016-09-16/</loc>
     
-    <lastmod>2019-11-20T08:57:04.156Z</lastmod>
+    <lastmod>2019-11-20T09:10:27.864Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpaztech.github.io/archive/disk11-after20180104/</loc>
+    
+    <lastmod>2019-11-20T09:10:27.849Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpaztech.github.io/archive/backup-morethan-1tb-disk/</loc>
+    
+    <lastmod>2019-11-20T09:10:27.833Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpaztech.github.io/archive/azure-powershell-3-8-0-install/</loc>
+    
+    <lastmod>2019-11-20T09:10:27.802Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpaztech.github.io/archive/applicationgaetway-waf-01/</loc>
+    
+    <lastmod>2019-11-20T09:10:27.755Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpaztech.github.io/archive/application-gateway-waf-vulnerability-detection/</loc>
+    
+    <lastmod>2019-11-20T09:10:27.755Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://jpaztech.github.io/archive/application-gateway-502-error-info/</loc>
     
-    <lastmod>2019-11-20T08:57:04.140Z</lastmod>
+    <lastmod>2019-11-20T09:10:27.724Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://jpaztech.github.io/archive/about-application-gateway/</loc>
     
-    <lastmod>2019-11-20T08:57:04.140Z</lastmod>
+    <lastmod>2019-11-20T09:10:27.708Z</lastmod>
     
   </url>
   
